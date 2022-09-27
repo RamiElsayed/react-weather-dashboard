@@ -5,7 +5,7 @@ export const SearchHistory = () => {
     <div className="aside-item">
       <h2>Recent Searches</h2>
       <Divider />
-      <List divided>
+      <List>
         <List.Item
           onClick={() => {
             console.log("item clicked");
