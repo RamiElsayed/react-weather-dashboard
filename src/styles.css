@@ -5,5 +5,8 @@
   padding: 20px;
 }
 .recent-search-item {
-  padding: 10px 0;
+  padding: 20px 0 !important;
+}
+.banner-item {
+  padding: 20px 0;
 }
