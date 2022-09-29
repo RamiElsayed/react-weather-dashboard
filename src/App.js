@@ -1,4 +1,4 @@
-import { Grid } from "semantic-ui-react";
+import { Divider, Grid } from "semantic-ui-react";
 import { Banner } from "./components/Banner";
 import { SearchForm } from "./components/SearchForm";
 import { SearchHistory } from "./components/SearchHistory";
@@ -16,6 +16,7 @@ export const App = () => {
         </Grid.Column>
         <Grid.Column mobile={16} tablet={12} computer={12}>
           <Banner />
+          <Divider />
           <WeatherInfo />
         </Grid.Column>
       </Grid.Row>

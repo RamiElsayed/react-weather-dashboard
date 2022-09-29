@@ -1,11 +1,17 @@
 import "../../styles.css";
 export const SearchForm = () => {
   return (
-    <div className="aside-item">
+    <form
+      className="aside-item"
+      onSubmit={(event) => {
+        event.preventDefault();
+        console.log("make API request");
+      }}
+    >
       <div className="ui icon input">
         <input type="text" placeholder="Enter city name" />
         <i className="search icon"></i>
       </div>
-    </div>
+    </form>
   );
 };
