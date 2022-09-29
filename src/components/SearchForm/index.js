@@ -1,14 +1,25 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 import "../../styles.css";
+import axios from "axios";
+
+const API_KEY = "cc62f1f5a783a34cac3cb5e4ca44e8a4";
 export const SearchForm = () => {
-  const [isLoading, setisLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
+    const getData = async () => {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${API_KEY}
+      `;
+      const { data } = await axios.get(url);
+      return data;
+    };
     if (searchTerm) {
-      console.log("Make Api request for", searchTerm);
+      setIsLoading(true);
+      console.log(getData());
+      setIsLoading(false);
     }
   }, [searchTerm]);
   return (
