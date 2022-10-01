@@ -19,6 +19,8 @@ export const SearchForm = () => {
     if (searchTerm) {
       setIsLoading(true);
       console.log(getData());
+      const cities = JSON.parse(localStorage.getItem("cities")) || [];
+      cities.push(searchTerm);
       setIsLoading(false);
     }
   }, [searchTerm]);
