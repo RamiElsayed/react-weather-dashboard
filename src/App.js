@@ -12,6 +12,8 @@ export const App = () => {
   const [cities, setCities] = useState(
     JSON.parse(localStorage.getItem("cities")) || []
   );
+  const [weatherData, setWeatherData] = useState("");
+
   return (
     <AppContext.Provider
       value={{
@@ -19,6 +21,8 @@ export const App = () => {
         setCities,
         searchTerm,
         setSearchTerm,
+        weatherData,
+        setWeatherData,
       }}
     >
       <Grid>

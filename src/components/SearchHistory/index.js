@@ -3,7 +3,7 @@ import { Divider, List } from "semantic-ui-react";
 import { AppContext } from "../../App";
 import "../../styles.css";
 export const SearchHistory = () => {
-  const { cities } = useContext(AppContext);
+  const { cities, setSearchTerm } = useContext(AppContext);
   return (
     <div className="aside-item">
       <h2>Recent Searches</h2>
@@ -16,6 +16,7 @@ export const SearchHistory = () => {
               as="a"
               onClick={() => {
                 console.log("item clicked");
+                setSearchTerm(city);
               }}
               className="recent-search-item"
             >
