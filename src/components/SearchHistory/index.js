@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Divider, List } from "semantic-ui-react";
+import { AppContext } from "../../App";
 import "../../styles.css";
 export const SearchHistory = () => {
-  const [cities, setCities] = useState(
-    JSON.parse(localStorage.getItem("cities")) || []
-  );
+  const { cities } = useContext(AppContext);
   return (
     <div className="aside-item">
       <h2>Recent Searches</h2>

@@ -9,10 +9,14 @@ import "./styles.css";
 export const AppContext = React.createContext();
 export const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [cities, setCities] = useState(
+    JSON.parse(localStorage.getItem("cities")) || []
+  );
   return (
     <AppContext.Provider
       value={{
-        cities: JSON.parse(localStorage.getItem("cities")) || [],
+        cities,
+        setCities,
         searchTerm,
         setSearchTerm,
       }}

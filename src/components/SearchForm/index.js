@@ -6,7 +6,8 @@ import { AppContext } from "../../App";
 
 const API_KEY = "cc62f1f5a783a34cac3cb5e4ca44e8a4";
 export const SearchForm = () => {
-  const { searchTerm, setSearchTerm } = useContext(AppContext);
+  const { searchTerm, setSearchTerm, cities, setCities } =
+    useContext(AppContext);
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
@@ -20,9 +21,12 @@ export const SearchForm = () => {
     if (searchTerm) {
       setIsLoading(true);
       console.log(getData());
-      const cities = JSON.parse(localStorage.getItem("cities")) || [];
-      cities.push(searchTerm);
-      localStorage.setItem("cities", JSON.stringify(cities));
+      const citiesFromLS = JSON.parse(localStorage.getItem("cities")) || [];
+      citiesFromLS.push(searchTerm);
+      localStorage.setItem("cities", JSON.stringify(citiesFromLS));
+      setCities([...cities, searchTerm]);
+      setSearchTerm("");
+      setInputValue("");
       setIsLoading(false);
     }
   }, [searchTerm]);
