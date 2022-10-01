@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import classNames from "classnames";
 import "../../styles.css";
 import axios from "axios";
+import { AppContext } from "../../App";
 
 const API_KEY = "cc62f1f5a783a34cac3cb5e4ca44e8a4";
 export const SearchForm = () => {
+  const { searchTerm, setSearchTerm } = useContext(AppContext);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
@@ -21,6 +22,7 @@ export const SearchForm = () => {
       console.log(getData());
       const cities = JSON.parse(localStorage.getItem("cities")) || [];
       cities.push(searchTerm);
+      localStorage.setItem("cities", JSON.stringify(cities));
       setIsLoading(false);
     }
   }, [searchTerm]);

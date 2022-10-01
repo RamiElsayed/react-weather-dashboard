@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { isCompositeComponentWithType } from "react-dom/test-utils";
 import { Divider, List } from "semantic-ui-react";
 import "../../styles.css";
 export const SearchHistory = () => {
@@ -12,16 +11,18 @@ export const SearchHistory = () => {
       <Divider />
       <List divided>
         {cities.map((city) => {
-          <List.Item
-            key={city}
-            as="a"
-            onClick={() => {
-              console.log("item clicked");
-            }}
-            className="recent-search-item"
-          >
-            {city}
-          </List.Item>;
+          return (
+            <List.Item
+              key={city}
+              as="a"
+              onClick={() => {
+                console.log("item clicked");
+              }}
+              className="recent-search-item"
+            >
+              {city}
+            </List.Item>
+          );
         })}
       </List>
     </div>
